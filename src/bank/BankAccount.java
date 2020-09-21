@@ -27,10 +27,18 @@ public class BankAccount {
         lastAccountNumber++;
         this.accountNumber = lastAccountNumber;
         this.balance = balance;
-        this.owner = checkName(owner);
+        this.owner = owner;
         this.password = makePassword();
     }
-
+    
+    //Cria uma conta com todos os atributos
+    public BankAccount( int accountNumber,String password, String owner, double balance) {
+        this.owner = owner;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+        this.password = password;
+    }
+    
     //Método que realiza um depósito, de uma determinada quantia, em uma conta bancária
     public void deposit(double amount) {
         double newBalance = balance + amount;
@@ -102,6 +110,26 @@ public class BankAccount {
         return owner;
     }
 
+    public static void setLastAccountNumber(int lastAccountNumber) {
+        BankAccount.lastAccountNumber = lastAccountNumber;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     @Override
     public String toString() {
         return " ===================== "
