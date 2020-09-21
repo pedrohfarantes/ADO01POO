@@ -21,7 +21,7 @@ public class Bank {
     private int last;                //Último índice da conta inserida
 
     public Bank(String fileName) throws FileNotFoundException, IOException {
-
+        
         File arquivoLeitura = new File(fileName);
         FileReader fileReader = new FileReader(arquivoLeitura);
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -31,7 +31,29 @@ public class Bank {
             firstLineContent = line;
         }
         int arrayLength = Integer.parseInt(firstLineContent);
-        accounts = new BankAccount[arrayLength];
+        String content = "";
+        
+        BankAccount[] contas = new BankAccount[arrayLength];
+        System.out.println(arrayLength);
+        
+        
+            
+        String text;
+        text = bufferedReader.readLine();
+        while (text != null) {
+        content = text;
+        text = bufferedReader.readLine();
+        }
+        
+        fileReader.close();
+        String[] contastext = content.split("#");
+        
+        System.out.println(contastext[0]);
+        System.out.println(contastext[1]);
+        System.out.println(contastext[2]);
+        System.out.println(contastext[3]);
+        
+
     }
 
     public Bank() {
