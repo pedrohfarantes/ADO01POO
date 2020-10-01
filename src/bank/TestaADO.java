@@ -9,8 +9,11 @@ import java.util.Arrays;
  */
 public class TestaADO {
     public static void main(String[] args) throws IOException {
-        Bank banco = new Bank("resources/entrada.txt");
-        System.out.println(Arrays.toString(banco.getAccounts()));
-        System.out.println(banco.getTotalBalance());
+        //Bank banco = new Bank("src/resources/entrada.txt");
+        //System.out.println(Arrays.toString(banco.getAccounts()));
+        //System.out.println(banco.getTotalBalance());
+        
+        Bank banco2 = new Bank();
+        banco2.dump("src/resources/gravadorDeArquivosDoBanco.txt");
     }
 }

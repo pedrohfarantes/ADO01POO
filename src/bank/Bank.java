@@ -19,43 +19,77 @@ public class Bank {
         accounts = new BankAccount[100]; //Banco no , no máximo, 100 contas
         last = 0;
     }
-    
+
     public Bank(String fileName) throws FileNotFoundException, IOException {
         accounts = new BankAccount[100];
-        
+
         //Lê o arquivo
         File arquivoLeitura = new File(fileName);
         try (FileReader fileReader = new FileReader(arquivoLeitura)) {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             String firstLineContent = null;
-            
+
             //Leitura da primeira linha da entrada
             if ((line = bufferedReader.readLine()) != null) {
                 firstLineContent = line;
             }
             int numContas = Integer.parseInt(firstLineContent);
-            System.out.println(numContas+"\n");
-            
+            System.out.println(numContas + "\n");
+
             //Lê as contas do arquivo e insere no array
             while ((line = bufferedReader.readLine()) != null) {
-                
+
                 String content = line;
                 String[] contentSplit = content.split("#");
-                
+
                 //Cria a conta e seta os valores
                 BankAccount conta = new BankAccount(contentSplit[2]);
                 conta.setAccountNumber(Integer.parseInt(contentSplit[0]));
                 conta.setPassword(contentSplit[1]);
                 conta.setBalance(Double.parseDouble(contentSplit[3]));
-                
+
                 addAccount(conta);
             }
-            
+
             fileReader.close();
         }
     }
-    
+
+    public void sort() {
+        for (int i = 0; i < last; i++) {
+            int menor = i;
+            for (int j = i + 1; j < last; j++) {
+                if (accounts[j].getAccountNumber() < accounts[menor].getAccountNumber()) {
+                    menor = j;
+                }
+            }
+            int accountI = accounts[i].getAccountNumber();
+            int accountM = accounts[menor].getAccountNumber();
+            int aux = accountI;
+            accountI = accountM;
+            accountM = aux;
+        }
+    }
+
+    public void dump(String path) throws IOException {
+        //String path = "resources/gravadorDeArquivosDoBanco.txt";
+        String txt = "";
+        for (int i = 0; i < last; i++) {
+            txt += "Conta número: " + accounts[i].getAccountNumber()
+                    + "\nSenha: " + accounts[i].getPassword()
+                    + "\nProprietário " + accounts[i].getOwner()
+                    + "\nSaldo " + accounts[i].getBalance();
+        }
+
+        if (fileHandler.FileHandler.writer(path, txt)) {
+            System.out.println("Arquivo salvo com sucesso");
+        } else {
+            System.out.println("Erro ao salvar o arquivo");
+        }
+
+    }
+
     public BankAccount[] getAccounts() {
         return this.accounts;
     }
@@ -80,4 +114,5 @@ public class Bank {
         }
         return soma;
     }
+
 }
