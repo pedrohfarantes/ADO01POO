@@ -1,20 +1,17 @@
 package bank;
 
-
-
-import bank.Bank;
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  *
- * @author Gustavo
+ * @author JPG
  */
 public class TestaADO {
+    
     public static void main(String[] args) throws IOException {
-        Bank banco = new Bank("entrada.txt");
-        
-        
+        Bank banco = new Bank("resources/entradaDesordenada.txt");
+        banco.sort();
+        banco.dump("resources/gravadorDeArquivosDoBanco.txt");
         
         
        

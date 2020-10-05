@@ -34,7 +34,6 @@ public class BankAccount {
         this.balance = balance;
         this.password = makePassword();
     }
-   
     
     //Método que realiza um depósito, de uma determinada quantia, em uma conta bancária
     public void deposit(double amount){

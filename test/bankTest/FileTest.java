@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bank;
+package bankTest;
 
 import fileHandler.FileHandler;
 import java.io.BufferedReader;
