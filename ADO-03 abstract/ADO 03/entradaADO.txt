@@ -1,0 +1,8 @@
+7
+RA#1011#123456#Roberto Rodrigues#1500.00#1000.0
+SA#1037#56789#Anderson Marques#630.00#0.2
+RA#2045#3456#Renato Rodrigues#1800.00#500.0
+CLA#1033#45678#Guilherme Freitas#4700.0#Teste de aim#10/10/2010#20/10/2020#5#osasco
+FLA#1037#56789#Gustavo Braga#630.00#Teste de aim#10/10/2010#10/10/2020#5#2 instancia
+SLA#2045#3456#James Rodrigues#1800.00#Teste de aim#10/10/2010#25/10/2020#5#sao paulo
+CLA#1033#45678#Guilherme Freitas#4700.0#Teste de aim#10/10/2010#28/10/2021#5#osasco
